@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en" id="whole">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      content="width=device-width"
+      initial-scale="1.0"
+      maximum-scale="1.0"
+      user-scalable="0"
+      name="viewport"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="img/icons8-inspection-40.png" type="image/x-icon" />
+    <title>Bid Maker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="modal">
+      <div class="modal__container">
+        <h2 class="container__title">
+          Type in the elbow sequence or the length of the piece. (ex: AABA, 57")
+        </h2>
+        <input id="textinput" type="text" class="container__input" />
+        <div class="container__buttons">
+          <button type="button" class="button button_cancel">Cancel</button>
+          <button type="button" class="button button_confirm">OK</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal modal-prices modal-prices_visible">
+      <div class="modal-prices__container">
+        <img
+          src="./img/close.svg"
+          alt="close"
+          class="modal-prices__close-button"
+        />
+        <div class="modal-prices__header">
+          <h2 class="modal-prices__title">Prices</h2>
+        </div>
+        <form id="prices-form" class="modal-prices__body">
+          <section class="modal-prices__body-gutter-size-and-style">
+            <p class="modal-prices__body-title">Gutter Size and Style</p>
+            <ul class="modal-prices__body-items">
+              <li class="modal-prices__body-item">
+                <label for="price-5inKstyle" class="item__title"
+                  >5" K-Style
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-5inKstyle"
+                      data-name="5inK"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-6inKstyle" class="item__title"
+                  >6" K-Style
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-6inKstyle"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-7inKstyle" class="item__title"
+                  >7" K-Style
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-7inKstyle"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-6inHR" class="item__title"
+                  >6" Half Round
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-6inHR"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-8inHR" class="item__title"
+                  >8" Half Round
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-8inHR"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-6inBox" class="item__title"
+                  >6" Box
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-6inBox"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-5inStraight" class="item__title"
+                  >5" Straight Face
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-5inStraight"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-6inStraight" class="item__title"
+                  >6" Straight Face
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-6inStraight"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-custom" class="item__title"
+                  >Custom
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-custom"
+                    />
+                  </div>
+                </label>
+              </li>
+            </ul>
+          </section>
+          <section class="modal-prices__body-downspout-size-and-style">
+            <p class="modal-prices__body-title">Downspout Size and Style</p>
+            <ul class="modal-prices__body-items">
+              <li class="modal-prices__body-item">
+                <label for="price-2x3-corrugated" class="item__title"
+                  >2x3 Corrugated
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-2x3-corrugated"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-2x3-A" class="item__title"
+                  >2x3 A Elbow
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-2x3-A"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-2x3-B" class="item__title"
+                  >2x3 B Elbow
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-2x3-B"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-3x4-corrugated" class="item__title"
+                  >3x4 Corrugated
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-3x4-corrugated"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-3x4-A" class="item__title"
+                  >3x4 A Elbow
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-3x4-A"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-3x4-B" class="item__title"
+                  >3x4 B Elbow
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-3x4-B"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-4x5-corrugated" class="item__title"
+                  >4x5 Corrugated
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-4x5-corrugated"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-4x5-A" class="item__title"
+                  >4x5 A Elbow
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-4x5-A"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-4x5-B" class="item__title"
+                  >4x5 B Elbow
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-4x5-B"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-3inRound" class="item__title"
+                  >3" Round
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-3inRound"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-4inRound" class="item__title"
+                  >4" Round
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-4inRound"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-3x4-smooth" class="item__title"
+                  >3x4 Smooth Box
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-3x4-smooth"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-3inRound-elbow" class="item__title"
+                  >3" Round Elbow
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-3inRound-elbow"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-4inRound-elbow" class="item__title"
+                  >4" Round Elbow
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-4inRound-elbow"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-ds-custom" class="item__title"
+                  >Custom
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-ds-custom"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-ds-custom-elbow" class="item__title"
+                  >Custom Elbow
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-ds-custom-elbow"
+                    />
+                  </div>
+                </label>
+              </li>
+            </ul>
+          </section>
+          <section class="modal-prices__body-misc">
+            <p class="modal-prices__body-title">Misc</p>
+            <ul class="modal-prices__body-items modal-prices__body-items_misc">
+              <li class="modal-prices__body-item">
+                <label for="price-ism" class="item__title"
+                  >Inside Miter
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-ism"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-osm" class="item__title"
+                  >Outside Miter
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-osm"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-custom-miter" class="item__title"
+                  >Custom Miter
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-custom-miter"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-endcap" class="item__title"
+                  >End Cap
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-endcap"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-flashing" class="item__title"
+                  >Drip Edge
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-flashing"
+                    />
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-splash-blocks" class="item__title"
+                  >Splash Blocks
+                  <div class="item__price-container">
+                    $
+                    <input
+                      class="item__price-input"
+                      placeholder="0.00"
+                      type="text"
+                      id="price-splash-blocks"
+                    />
+                  </div>
+                </label>
+              </li>
+
+              <li class="modal-prices__body-item">
+                <label for="price-copper" class="item__title"
+                  >Copper Markup
+                  <div class="item__price-container">
+                    <input
+                      class="item__price-input"
+                      placeholder="0"
+                      type="text"
+                      id="price-copper"
+                    />%
+                  </div>
+                </label>
+              </li>
+              <li class="modal-prices__body-item">
+                <label for="price-galvalume" class="item__title"
+                  >Galvalume Markup
+                  <div class="item__price-container">
+                    <input
+                      class="item__price-input"
+                      placeholder="0"
+                      type="text"
+                      id="price-galvalume"
+                    />%
+                  </div>
+                </label>
+              </li>
+            </ul>
+            <button class="button add-screen-button">Add Screen</button>
+          </section>
+        </form>
+        <div class="modal-prices__footer">
+          <button
+            class="button button_cancel button_alt button_alt-cancel"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button
+            class="button button_confirm button_alt button_alt_confirm"
+            type="button"
+          >
+            Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- The modals are above this line -->
+    <div class="form-wrapper">
+      <form id="main-form">
+        <div class="header-container">
+          <img
+            class="header-logo"
+            src="./img/top-904-logo-w-background.png"
+            alt="logo"
+          />
+          <div class="date-container">
+            <label class="label" for="date">Date:</label>
+            <input id="date" class="input form-field" type="date" />
+          </div>
+        </div>
+        <div class="customer-details-container">
+          <div class="customer-details-header">
+            <h2>CUSTOMER DETAILS</h2>
+          </div>
+          <div class="customer-details-body">
+            <label class="label" for="name">Name:</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              maxlength="100"
+              minlength="1"
+            />
+
+            <label class="label" for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone" />
+          </div>
+          <div class="customer-details-body2">
+            <label class="label" for="address">Address:</label>
+            <input type="text" name="address" id="address" />
+
+            <label class="label" for="email">Email:</label>
+            <input type="email" name="email" id="email" />
+          </div>
+        </div>
+
+        <div class="section2">
+          <div class="canvas-side">
+            <canvas id="canvas"></canvas>
+            <!-- <div class="canvas__watermark">
+              <img
+                src="./img/logo-blue-no-bg.png"
+                alt="logo watermark"
+                class="canvas__watermark-image"
+              />
+            </div> -->
+            <div class="tools-bar">
+              <select id="tool-select">
+                <option value="gutter">Gutter</option>
+                <!-- <option value="gutter-w-screen">Gutter w/ Screen</option> -->
+                <option value="existing-gutter">Existing Gutter</option>
+                <option value="downspout">Downspout</option>
+                <option value="drop">Drop to lower</option>
+                <option value="valley-shield">Valley Shield</option>
+                <option value="free-text">Elbow Seq/Piece Length</option>
+                <!-- <option value="eraser">Eraser</option> -->
+                <!-- <option value="flashing">Flashing</option>
+              <option value="fascia-repair">Fascia Repair/Replace</option> -->
+              </select>
+              <input
+                type="number"
+                min="10"
+                max="50"
+                id="grid-size"
+                value="14"
+                class="toolbar__number-input"
+              />
+              <!-- <button id="color">Color</button> -->
+              <button type="button" class="undo-button">Set Grid</button>
+              <select id="color">
+                <option
+                  value="black"
+                  style="background-color: black; color: white"
+                >
+                  Black
+                </option>
+                <option value="red" style="background-color: red; color: white">
+                  Red
+                </option>
+                <option
+                  value="cyan"
+                  style="background-color: cyan; color: black"
+                >
+                  Cyan
+                </option>
+                <option
+                  value="blue"
+                  style="background-color: blue; color: white"
+                >
+                  Blue
+                </option>
+                <option
+                  value="green"
+                  style="background-color: #2efc05; color: black"
+                >
+                  Green
+                </option>
+                <option
+                  value="magenta"
+                  style="background-color: magenta; color: black"
+                >
+                  Magenta
+                </option>
+                <option value="yellow" style="background-color: yellow">
+                  Yellow
+                </option>
+              </select>
+
+              <button class="eraser-btn" type="button">Eraser</button>
+              <button type="button" id="clear-button">Clear</button>
+              <button type="button" id="finish-button" onclick="finish()">
+                Done
+              </button>
+            </div>
+            <label for="job-notes" class="job-notes">
+              JOB DESCRIPTION / NOTES
+            </label>
+            <textarea
+              name="job-description"
+              id="job-notes"
+              rows="10"
+            ></textarea>
+          </div>
+          <div class="material-side">
+            <div class="material-details">
+              <div class="material-details-header">
+                <h3 class="material-side-header-text">MATERIAL</h3>
+                <select name="material-select" id="material-select">
+                  <option value="aluminum">Aluminum</option>
+                  <option value="copper">Copper</option>
+                  <option value="galvalume">Galvalume</option>
+                </select>
+              </div>
+              <div class="material-details-body">
+                <label for="coil-color" class="label coil-color"
+                  >Coil Color/Size:</label
+                >
+                <div class="material-details-body__section">
+                  <input type="text" name="coil-color" id="coil-color" />
+                  <select
+                    class="coil-size-select"
+                    name="coil-size"
+                    id="coil-size"
+                  ></select>
+                </div>
+
+                <label for="coil-footage" class="label coil-footage"
+                  >Coil Footage:</label
+                >
+                <input
+                  type="text"
+                  min="0"
+                  max="99999"
+                  name="coil-footage"
+                  id="coil-footage"
+                />
+                <label for="downspout-color" class="label downspout-color"
+                  >DS Color/Size:</label
+                >
+                <div class="material-details-body__section">
+                  <input type="text" name="color" id="downspout-color" />
+                  <select
+                    class="ds-size-select"
+                    name="ds-size"
+                    id="ds-size"
+                  ></select>
+                </div>
+
+                <label for="ds-footage" class="label ds-footage"
+                  >DS Footage:</label
+                >
+                <input
+                  type="text"
+                  min="0"
+                  max="99999"
+                  name="ds-footage"
+                  id="ds-footage"
+                />
+
+                <label for="splash-guards" class="label splashBlocks"
+                  >Splash Guards:</label
+                >
+                <input type="text" name="splash-guards" id="splash-guards" />
+                <label for="ism" class="label ism">ISM:</label>
+                <input
+                  type="text"
+                  min="0"
+                  max="99999"
+                  name="ism"
+                  id="ism"
+                  data-ism="price-ism"
+                />
+
+                <label for="osm" class="label osm">OSM:</label>
+                <input
+                  type="text"
+                  min="0"
+                  max="99999"
+                  name="osm"
+                  id="osm"
+                  data-osm="price-osm"
+                />
+
+                <label for="custom-miters" class="label custom-miters"
+                  >Custom Miters:</label
+                >
+                <input
+                  type="text"
+                  min="0"
+                  max="99999"
+                  name="custom-miters"
+                  id="custom-miters"
+                  data-custom-miter="price-custom-miter"
+                />
+
+                <label class="label" for="end-caps">End Caps:</label>
+                <input
+                  min="0"
+                  max="99999"
+                  type="text"
+                  name="end-caps"
+                  id="end-caps"
+                  data-end-caps="price-endcap"
+                />
+
+                <label class="label" for="a-elbows">A's:</label>
+                <input
+                  min="0"
+                  max="99999"
+                  type="text"
+                  name="a-elbows"
+                  id="a-elbows"
+                />
+
+                <label class="label" for="b-elbows">B's:</label>
+                <input
+                  min="0"
+                  max="99999"
+                  type="text"
+                  name="b-elbows"
+                  id="b-elbows"
+                />
+
+                <label class="label" for="offsets">Offsets:</label>
+                <input
+                  min="0"
+                  max="99999"
+                  type="text"
+                  name="offsets"
+                  id="offsets"
+                />
+
+                <label class="label" for="splash-blocks">Splash Blocks:</label>
+                <input
+                  min="0"
+                  max="99999"
+                  type="text"
+                  name="splash-blocks"
+                  id="splash-blocks"
+                />
+                <label class="label gutter-and-ds-label" for="other"
+                  >Gutter and Ds:</label
+                >
+                <input
+                  class="gutter-and-ds-input"
+                  type="text"
+                  name="other"
+                  id="other"
+                  placeholder="$"
+                />
+              </div>
+            </div>
+            <div class="pricing-container">
+              <div class="extra-and-pricing-header">
+                <h3>EXTRA</h3>
+              </div>
+              <div class="extra-and-pricing-body">
+                <label class="label" for="drip-edge">Drip Edge:</label>
+                <input
+                  min="0"
+                  max="99999"
+                  type="text"
+                  name="drip-edge"
+                  id="drip-edge"
+                />
+
+                <label class="label" for="screen" id="screen-label"
+                  >Screen:</label
+                >
+
+                <div class="screen-input-container">
+                  <textarea name="screen" id="screen" rows="6"></textarea>
+                  <select
+                    name="screen-choice"
+                    id="screen-choice"
+                    class="screen-choice"
+                  ></select>
+                </div>
+                <label class="label gutter-and-ds-label2" for="other"
+                  >Gutter and Ds:</label
+                >
+                <input
+                  class="gutter-and-ds-input2"
+                  type="text"
+                  name="other"
+                  id="other"
+                  placeholder="$"
+                />
+
+                <label class="label" for="additions3" id="additions3-label"
+                  >Additions:</label
+                >
+
+                <textarea
+                  name="additions3"
+                  rows="5"
+                  id="additions3"
+                  placeholder="$"
+                ></textarea>
+
+                <label class="label" for="additions" id="additions2-label"
+                  >Additions:</label
+                >
+
+                <textarea
+                  name="additions"
+                  rows="5"
+                  id="additions"
+                  placeholder="$"
+                ></textarea>
+
+                <label class="label" for="additions2" id="additions-label"
+                  >Additions:</label
+                >
+
+                <textarea
+                  name="additions2"
+                  rows="6"
+                  id="additions2"
+                  placeholder="$"
+                ></textarea>
+
+                <label class="label" for="total">Grand Total:</label>
+                <input type="text" name="total" id="total" placeholder="$" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="scripts.js"></script>
+    <script></script>
+  </body>
+</html>
