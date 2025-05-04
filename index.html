@@ -383,6 +383,7 @@
 
       #clear-button {
         background-color: rgb(241, 112, 112);
+        display: none;
       }
 
       #tool-select {
@@ -610,6 +611,10 @@
       .canvas__watermark-image {
         width: 400px;
         opacity: 0.2;
+      }
+
+      .contractor-discount-label {
+        display: flex;
       }
     </style>
   </head>
@@ -1113,6 +1118,19 @@
                   </div>
                 </label>
               </li>
+              <li class="modal-prices__body-item">
+                <label for="discount" class="item__title"
+                  >Contractor Discount
+                  <div class="item__price-container">
+                    <input
+                      class="item__price-input"
+                      placeholder="0"
+                      type="text"
+                      id="discount"
+                    />%
+                  </div>
+                </label>
+              </li>
             </ul>
             <button class="button add-screen-button">Add Screen</button>
           </section>
@@ -1205,7 +1223,9 @@
                 class="toolbar__number-input"
               />
               <!-- <button id="color">Color</button> -->
-              <button type="button" class="undo-button">Set Grid</button>
+              <button type="button" class="undo-button" style="font-size: 10px">
+                Set Grid
+              </button>
               <select id="color">
                 <option
                   value="black"
@@ -1247,9 +1267,22 @@
 
               <button class="eraser-btn" type="button">Eraser</button>
               <button type="button" id="clear-button">Clear</button>
+
               <button type="button" id="finish-button" onclick="finish()">
                 Done
               </button>
+
+              <label
+                class="contractor-discount-label"
+                for="contractor-discount"
+              >
+                <input
+                  type="checkbox"
+                  name="contractor-discount"
+                  id="contractor-discount"
+                />
+                Discount
+              </label>
             </div>
             <label for="job-notes" class="job-notes">
               JOB DESCRIPTION / NOTES
@@ -1550,7 +1583,13 @@
       const additions2Input = document.getElementById("additions2");
       const additionsInput = document.getElementById("additions");
 
+      const contractorDiscountInput = document.getElementById(
+        "contractor-discount"
+      );
+      const discountValue = document.getElementById("discount");
+
       let gutterAndDsElementIsOnBottomSection = false;
+      let discountApplied = false;
 
       const keyGutter = {
         "price-5inKstyle": '5" K-Style',
@@ -2345,6 +2384,11 @@
         toggleEraser(isEraserOn);
       });
 
+      contractorDiscountInput.addEventListener("click", (e) => {
+        discountApplied = !discountApplied;
+        calculate();
+      });
+
       // Initialize on DOMContentLoaded
       document.addEventListener("DOMContentLoaded", startup);
       document.addEventListener("keydown", (e) => {
@@ -2506,6 +2550,12 @@
         total += parseFloat(additions3value);
         total += parseFloat(additions2value);
         total += parseFloat(additionsValue);
+
+        if (discountApplied) {
+          total = total - total * parseFloat(localStorage.discount * 0.01);
+          renderTotal(total);
+          return parseInt(total);
+        }
 
         renderTotal(total);
         return parseInt(total);
