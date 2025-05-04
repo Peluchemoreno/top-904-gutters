@@ -371,6 +371,7 @@ input {
 
 #clear-button {
   background-color: rgb(241, 112, 112);
+  display: none;
 }
 
 #tool-select {
@@ -596,4 +597,8 @@ button {
 .canvas__watermark-image{
   width: 400px;
   opacity: .2;
+}
+
+.contractor-discount-label {
+  display: flex;
 }

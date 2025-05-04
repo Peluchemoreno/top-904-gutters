@@ -46,7 +46,11 @@ const additions3Input = document.getElementById("additions3");
 const additions2Input = document.getElementById("additions2");
 const additionsInput = document.getElementById("additions");
 
+const contractorDiscountInput = document.getElementById("contractor-discount");
+const discountValue = document.getElementById("discount");
+
 let gutterAndDsElementIsOnBottomSection = false;
+let discountApplied = false;
 
 const keyGutter = {
   "price-5inKstyle": '5" K-Style',
@@ -829,6 +833,11 @@ eraserBtn.addEventListener("click", () => {
   toggleEraser(isEraserOn);
 });
 
+contractorDiscountInput.addEventListener("click", (e) => {
+  discountApplied = !discountApplied;
+  calculate();
+});
+
 // Initialize on DOMContentLoaded
 document.addEventListener("DOMContentLoaded", startup);
 document.addEventListener("keydown", (e) => {
@@ -976,6 +985,12 @@ function calculate() {
   total += parseFloat(additions3value);
   total += parseFloat(additions2value);
   total += parseFloat(additionsValue);
+
+  if (discountApplied) {
+    total = total - total * parseFloat(localStorage.discount * 0.01);
+    renderTotal(total);
+    return parseInt(total);
+  }
 
   renderTotal(total);
   return parseInt(total);

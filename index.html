@@ -515,6 +515,19 @@
                   </div>
                 </label>
               </li>
+              <li class="modal-prices__body-item">
+                <label for="discount" class="item__title"
+                  >Contractor Discount
+                  <div class="item__price-container">
+                    <input
+                      class="item__price-input"
+                      placeholder="0"
+                      type="text"
+                      id="discount"
+                    />%
+                  </div>
+                </label>
+              </li>
             </ul>
             <button class="button add-screen-button">Add Screen</button>
           </section>
@@ -607,7 +620,9 @@
                 class="toolbar__number-input"
               />
               <!-- <button id="color">Color</button> -->
-              <button type="button" class="undo-button">Set Grid</button>
+              <button type="button" class="undo-button" style="font-size: 10px">
+                Set Grid
+              </button>
               <select id="color">
                 <option
                   value="black"
@@ -649,9 +664,22 @@
 
               <button class="eraser-btn" type="button">Eraser</button>
               <button type="button" id="clear-button">Clear</button>
+
               <button type="button" id="finish-button" onclick="finish()">
                 Done
               </button>
+
+              <label
+                class="contractor-discount-label"
+                for="contractor-discount"
+              >
+                <input
+                  type="checkbox"
+                  name="contractor-discount"
+                  id="contractor-discount"
+                />
+                Discount
+              </label>
             </div>
             <label for="job-notes" class="job-notes">
               JOB DESCRIPTION / NOTES
